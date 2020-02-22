@@ -9,28 +9,39 @@ public class crouch : MonoBehaviour
     CharacterController characterCollider;
     CapsuleCollider collider;
 
+    public float crouchradius;
+    public float crouchheight;
+
+    public bool uncrouch;
+
     // Start is called before the first frame update
     void Start()
     {
         characterCollider = player.GetComponent<CharacterController>();
         collider = capsule.GetComponent<CapsuleCollider>();
+        uncrouch = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (uncrouch)
         {
-           // characterCollider.radius = 1f;
-            characterCollider.height = 1.5f;
-            collider.height = 0.5f;
-           
-        }
-        else
-        {
-            //characterCollider.radius = 2.3f;
-            characterCollider.height = 3.5f;
-            collider.height = 2f;
+
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                // characterCollider.radius = 1f;
+                characterCollider.height = crouchradius;
+                collider.height = crouchheight;
+
+            }
+            else
+            {
+                //characterCollider.radius = 2.3f;
+                characterCollider.height = 3.5f;
+                collider.height = 2f;
+            }
         }
     }
 }

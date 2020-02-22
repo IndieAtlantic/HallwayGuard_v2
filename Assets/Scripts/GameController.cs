@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
 
     public Text healthtext;
     public Text emptext;
+    public Text wintext;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class GameController : MonoBehaviour
 
         healthtext.text = "";
         emptext.text = "";
+        wintext.text = "";
     }
 
 
