@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class GameController : MonoBehaviour
 
     public Text healthtext;
     public Text emptext;
-    public Text wintext;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,6 @@ public class GameController : MonoBehaviour
 
         healthtext.text = "";
         emptext.text = "";
-        wintext.text = "";
     }
 
 
@@ -36,5 +35,10 @@ public class GameController : MonoBehaviour
     {
         healthtext.text = "Health: " + health;
         emptext.text = "Disrupters: " + disrupter;
+
+        if (health == 0)
+        {
+            SceneManager.LoadScene("FailScreen");
+        }
     }
 }

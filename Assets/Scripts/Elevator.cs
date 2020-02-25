@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Elevator : MonoBehaviour
 {
@@ -11,8 +12,6 @@ public class Elevator : MonoBehaviour
     public float speed;
 
     public bool rise;
-
-    public GameObject gc;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +34,8 @@ public class Elevator : MonoBehaviour
         if (other.tag == "Player")
         {
             rise = true;
-            gc.GetComponent<GameController>().wintext.text = "You Win";
+            SceneManager.LoadScene("WinScreen");
+            SceneManager.UnloadScene("ConnorScene");
         }
     }
 }
